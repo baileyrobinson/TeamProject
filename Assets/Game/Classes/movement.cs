@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
-    public GameObject player;
     public float speed = 25;
     public int startingStamina = 100;                            // The amount of stamina the player starts the game with.
     public float currentStamina;                                   // The current stamina the player has.
@@ -20,12 +19,11 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed * 2);
 
@@ -38,31 +36,28 @@ public class movement : MonoBehaviour
                 transform.Translate(Vector3.forward * Time.deltaTime * speed);
             }
         }
-        else
+
+        if (currentStamina < startingStamina)
         {
-            if (currentStamina < startingStamina)
-            {
-                currentStamina += Time.deltaTime;
-            }
+            currentStamina += Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(Vector3.back * Time.deltaTime * speed);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(0, -5f, 0);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, 5f, 0);
         }
     }
 }
-
 
 
 
