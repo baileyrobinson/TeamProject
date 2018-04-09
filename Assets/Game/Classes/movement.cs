@@ -9,21 +9,32 @@ public class movement : MonoBehaviour
     public int startingStamina = 100;                            // The amount of stamina the player starts the game with.
     public float currentStamina;                                   // The current stamina the player has.
     public Slider staminaSlider;                                 // Reference to the UI's stamina bar.
+    public Rigidbody rb; 
 
     // Use this for initialization
     void Start()
     {
+        currentStamina = startingStamina;
+        rb.GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        float haxis = Input.GetAxis("Horizontal");
+        float vaxis = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(haxis, 0, vaxis) * speed * Time.deltaTime;
+
+        rb.MovePosition(transform.position + movement);
+
+        /*
+        if (Input.GetKey("w"))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed * 2);
 
@@ -42,20 +53,21 @@ public class movement : MonoBehaviour
             currentStamina += Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector3.back * Time.deltaTime * speed);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0, -5f, 0);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0, 5f, 0);
         }
+        */
     }
 }
 
