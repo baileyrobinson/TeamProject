@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2333,6 +2334,7 @@ GameObject:
   - component: {fileID: 1673399658}
   - component: {fileID: 1673399657}
   - component: {fileID: 1673399659}
+  - component: {fileID: 1673399660}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Cube
@@ -2445,6 +2447,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1673399660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673399652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add05fb0084b3d3408bb2a01216453d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 359377068}
+  MoveSpeed: 10
+  MaxDist: 10
+  MinDist: 5
+  Range: 25
 --- !u!1 &1826310721
 GameObject:
   m_ObjectHideFlags: 0
