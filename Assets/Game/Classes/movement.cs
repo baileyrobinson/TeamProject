@@ -29,16 +29,11 @@ public class movement : MonoBehaviour
 
         rb.MovePosition(transform.position + movement);
 
-        /*
-        if (Input.GetKey("w"))
+        if (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * 2);
+            rb.MovePosition(transform.position + movement * 2);
 
-            currentStamina -= Time.deltaTime;
+            currentStamina -= 1;
             staminaSlider.value = currentStamina;
 
             // If the player has lost all it's stamina and the death flag hasn't been set yet...
@@ -47,12 +42,13 @@ public class movement : MonoBehaviour
                 transform.Translate(Vector3.forward * Time.deltaTime * speed);
             }
         }
-
         if (currentStamina < startingStamina)
         {
-            currentStamina += Time.deltaTime;
+            currentStamina += 1;
+            staminaSlider.value = currentStamina;
         }
 
+        /*
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector3.back * Time.deltaTime * speed);

@@ -53,6 +53,7 @@ public class PlayerHealth : MonoBehaviour {
     {
         currentHealth -= amount;
         healthSlider.value = currentHealth;
+        damaged = true;
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
         if (currentHealth <= 0 && !isDead)
