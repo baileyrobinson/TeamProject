@@ -9,61 +9,40 @@ public class movement : MonoBehaviour
     public int startingStamina = 100;                            // The amount of stamina the player starts the game with.
     public float currentStamina;                                   // The current stamina the player has.
     public Slider staminaSlider;                                 // Reference to the UI's stamina bar.
-    public Rigidbody rb; 
 
     // Use this for initialization
     void Start()
     {
         currentStamina = startingStamina;
-        rb.GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        float haxis = Input.GetAxis("Horizontal");
-        float vaxis = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(haxis, 0, vaxis) * speed * Time.deltaTime;
-
-        rb.MovePosition(transform.position + movement);
+        transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
-            rb.MovePosition(transform.position + movement * 2);
+            transform.Translate(speed * 1.5f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
 
-            currentStamina -= 1;
+            currentStamina -= .5f;
             staminaSlider.value = currentStamina;
 
             // If the player has lost all it's stamina and the death flag hasn't been set yet...
             if (currentStamina <= 0)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
             }
         }
-        if (currentStamina < startingStamina)
+        else
         {
-            currentStamina += 1;
-            staminaSlider.value = currentStamina;
+            if (currentStamina < startingStamina)
+            {
+                currentStamina += .25f;
+                staminaSlider.value = currentStamina;
+            }
         }
 
-        /*
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * Time.deltaTime * speed);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0, -5f, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0, 5f, 0);
-        }
-        */
     }
 }
 
