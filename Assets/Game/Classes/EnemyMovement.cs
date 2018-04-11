@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnemyMovement : MonoBehaviour
 {
-
+    
     public Transform Player;
     public int MoveSpeed = 10;
     public int MaxDist = 10; //distance to preform action
@@ -20,6 +20,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        Player = GameObject.FindWithTag("Player").transform;
+
         transform.LookAt(Player);
 
         if (Vector3.Distance(transform.position, Player.position) <= Range)

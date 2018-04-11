@@ -44,14 +44,35 @@ public class EnemyManager : MonoBehaviour {
         enemiesLeft = 0;
         spawnedEnemies = 0;
 
-        //StartCoroutine(SpawnEnemies());
+        StartCoroutine(SpawnEnemies());
     }
-    /*
+    
     IEnumerator SpawnEnemies()
     {
+        GameObject enemy = waves[currentWave].Enemy;
+        while (spawnedEnemies < totalEnemiesInWave)
+        {
+            spawnedEnemies++;
+            enemiesLeft++;
 
+            int spawnPointIndex = Random.Range(0, SpawnPoints.Length);
+
+            Instantiate(enemy, SpawnPoints[spawnPointIndex].position, SpawnPoints[spawnPointIndex].rotation);
+            yield return new WaitForSeconds(SpawnTime);
+        }
+        yield return null;
     }
-    */
+
+    public void enemyDefeated()
+    {
+        enemiesLeft--;
+
+        if (enemiesLeft == 0 && spawnedEnemies == totalEnemiesInWave)
+        {
+            StartNextWave();
+        }
+    }
+
 
     // Update is called once per frame
     void Update () {
