@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Cube
   - enemy
+  - BlackSmith
+  - Gold
+  - Material
   layers:
   - Default
   - TransparentFX

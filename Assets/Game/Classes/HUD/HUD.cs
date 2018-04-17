@@ -16,12 +16,12 @@ public class HUD : MonoBehaviour
     void Start()
     {
         health = maxhealth;
-        SetHealthBar ();
+        SetHealthBar();
         stamina = maxstamina;
         SetstaminaBar();
     }
 
-   public void SetHealthBar()
+    public void SetHealthBar()
     {
         float my_health = health / maxhealth;
         healthBar.transform.localScale = new Vector3(Mathf.Clamp(my_health, 0f, 1f), healthBar.transform.localScale.y, healthBar.transform.localScale.z);

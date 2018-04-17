@@ -8,12 +8,23 @@ public class movement : MonoBehaviour
     public float speed = 25;
     public int startingStamina = 100;                            // The amount of stamina the player starts the game with.
     public float currentStamina;                                   // The current stamina the player has.
-    public Slider staminaSlider;                                 // Reference to the UI's stamina bar.
+    public Slider staminaSlider;
+   
 
     // Use this for initialization
     void Start()
     {
         currentStamina = startingStamina;
+        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Screen.lockCursor = false;
+        }
+        else
+        {
+            Screen.lockCursor = true;
+        }
+        
     }
 
     // Update is called once per frame
@@ -44,6 +55,12 @@ public class movement : MonoBehaviour
         }
 
     }
+
+    void OnGUI()
+    {
+        GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");
+    }
+
 }
 
 
