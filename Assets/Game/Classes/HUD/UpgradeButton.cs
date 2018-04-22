@@ -16,7 +16,11 @@ public class UpgradeButton : PlayerInventory
 
     void TaskOnClick()
     {
+        if(Money >= 100 && Materials >= 100)
         WeaponLevel = 2;
         Debug.Log("You have clicked the button!");
+
+        Materials -= 100;
+        Money -= 100;
     }
 }

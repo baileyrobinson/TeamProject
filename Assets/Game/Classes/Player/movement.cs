@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
-    public float speed = 25;
+    public float speed = 10;
     public int startingStamina = 100;                            // The amount of stamina the player starts the game with.
     public float currentStamina;                                   // The current stamina the player has.
     public Slider staminaSlider;

@@ -27,6 +27,6 @@ public class PlayerWeapon1 : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
-        other.GetComponent(EnemyHealth).TakeDamage(damage);
+        //other.GetComponent(EnemyHealth).TakeDamage(damage);
     }
 }
