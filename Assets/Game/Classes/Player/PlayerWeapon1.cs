@@ -6,6 +6,7 @@ public class PlayerWeapon1 : MonoBehaviour {
     int Level = PlayerInventory.WeaponLevel;
     int BaseDamage = 10;
     int damage = 0;
+    EnemyHealth target;
 
     void dealDamage()
     {
@@ -27,6 +28,7 @@ public class PlayerWeapon1 : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
-        //other.GetComponent(EnemyHealth).TakeDamage(damage);
+        target = other.GetComponentInParent<EnemyHealth>();
+        target.TakeDamage(damage);
     }
 }
