@@ -9,6 +9,7 @@ TagManager:
   - BlackSmith
   - Gold
   - Material
+  - Sword
   layers:
   - Default
   - TransparentFX

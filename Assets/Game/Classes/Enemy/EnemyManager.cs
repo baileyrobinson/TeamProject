@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour {
     public float SpawnTime = 60f;
 
     private int totalEnemiesInWave;
-    private int enemiesLeft;
+    public int enemiesLeft;
     private int spawnedEnemies;
 
     private int currentWave;
