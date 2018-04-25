@@ -7,22 +7,29 @@ public class UpgradeButton : PlayerInventory
 {
 
     public Button upgradebutton;
+    public Text cost;
+    public int Cost = 100;
 
     void Start()
     {
         Button btn = upgradebutton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
+        cost.text = "Gold: " + Cost + System.Environment.NewLine + "Material: " + Cost.ToString();
     }
 
     void TaskOnClick()
     {
-        if (Money >= 100 && Materials >= 100)
+       
+        if (Money >= Cost && Materials >= Cost)
         {
-            WeaponLevel = 2;
+            WeaponLevel +=1;
             Debug.Log("You have clicked the button!");
 
-            Materials -= 100;
-            Money -= 100;
+            Materials -= Cost;
+            Money -= Cost;
+
+            Cost += 50;
         }
+        cost.text = "Gold: " + Cost + System.Environment.NewLine + "Material: " + Cost.ToString();
     }
 }

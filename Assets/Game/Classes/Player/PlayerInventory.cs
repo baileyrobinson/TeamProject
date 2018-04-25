@@ -22,12 +22,12 @@ public class PlayerInventory : MonoBehaviour {
     {
         if (collision.transform.tag == "Gold")
         {
-            Money += 10;
+            Money += 100;
         }
 
         if (collision.transform.tag == "Material")
         {
-            Materials += 10;
+            Materials += 100;
         }
     }
 }

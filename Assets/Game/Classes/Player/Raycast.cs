@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
-public class Raycast : MonoBehaviour
+public class Raycast : UpgradeButton
 {
     public GameObject Blacksmith;
     public GameObject BlackSmithMenu;
@@ -29,8 +30,11 @@ public class Raycast : MonoBehaviour
             {
                 Screen.lockCursor = false;
                 Cursor.visible = true;
+
                 BlackSmithMenu.SetActive(true);
                 Debug.Log("I pressed E while aiming at an object!");
+
+                
             }
 
         }

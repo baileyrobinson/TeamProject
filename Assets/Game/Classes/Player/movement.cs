@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class movement : PWPawn
 {
-   
+    Rigidbody rb;
     public float speed = 10;
     public int startingStamina = 100;                            // The amount of stamina the player starts the game with.
     public float currentStamina;                                   // The current stamina the player has.
     public Slider staminaSlider;
     public GameObject ExitMenu;
+
 
     // Use this for initialization
     void Start()
@@ -27,7 +28,11 @@ public class movement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+    }
+        // Update is called once per frame
     void Update()
     {
         transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
@@ -35,7 +40,7 @@ public class movement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
             transform.Translate(speed * 1.5f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
-        
+
 
             currentStamina -= .5f;
             staminaSlider.value = currentStamina;
@@ -43,7 +48,7 @@ public class movement : MonoBehaviour
             // If the player has lost all it's stamina and the death flag hasn't been set yet...
             if (currentStamina <= 0)
             {
-                
+
                 transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
             }
         }
@@ -55,14 +60,14 @@ public class movement : MonoBehaviour
                 staminaSlider.value = currentStamina;
             }
         }
-
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            ExitMenu.SetActive(true);
-            Screen.lockCursor = false;
-        }
+        if (Input.GetKey(KeyCode.Tab))
+       {
+          ExitMenu.SetActive(true);
+          Screen.lockCursor = false;
+       }
+        
     }
-
+     
     void OnGUI()
     {
         GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");
