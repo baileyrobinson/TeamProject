@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class wave {
@@ -14,21 +15,27 @@ public class EnemyManager : MonoBehaviour {
     public float SpawnTime = 2f;
 
     private int totalEnemiesInWave;
-    private int enemiesLeft;
+    public int enemiesLeft;
     private int spawnedEnemies;
 
     private int currentWave;
     private int totalWaves;
 
-	// Use this for initialization
-	void Start () {
+    public float timeLeft = 30f;
+    private bool showText = false;
+    
+    
+    
+    // Use this for initialization
+    void Start () {
 
+       
         currentWave = -1;
         totalWaves = waves.Length - 1;
 
         StartNextWave();
-
-	}
+        
+    }
 
     void StartNextWave()
     {
@@ -69,13 +76,33 @@ public class EnemyManager : MonoBehaviour {
 
         if (enemiesLeft == 0 && spawnedEnemies == totalEnemiesInWave)
         {
-            StartNextWave();
+            showText = true;
         }
+    }
+    void OnGUI()
+    {
+        int minutes = Mathf.FloorToInt(timeLeft / 60F);
+        int seconds = Mathf.FloorToInt(timeLeft - minutes * 60);
+        string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+        
+        if (showText)
+            GUI.Label(new Rect(400, 0, 250, 100), "Time To Next Wave: " + niceTime);
     }
 
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        
+        if (showText == true)
+        {
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                timeLeft = 30f;
+                showText = false;
+                StartNextWave();
+            }
+        }
+      
+    }
 }

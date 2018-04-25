@@ -9,6 +9,8 @@ TagManager:
   - BlackSmith
   - Gold
   - Material
+  - Sword
+  - spawnManager
   layers:
   - Default
   - TransparentFX
