@@ -10,6 +10,7 @@ TagManager:
   - Gold
   - Material
   - Sword
+  - spawnManager
   layers:
   - Default
   - TransparentFX

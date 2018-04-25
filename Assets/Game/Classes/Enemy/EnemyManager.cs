@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour {
 
     public wave[] waves;
     public Transform[] SpawnPoints;
-    public float SpawnTime = 60f;
+    public float SpawnTime = 2f;
 
     private int totalEnemiesInWave;
     public int enemiesLeft;
@@ -21,15 +21,15 @@ public class EnemyManager : MonoBehaviour {
     private int currentWave;
     private int totalWaves;
 
-    public float timeLeft = 5f;
+    public float timeLeft = 30f;
     private bool showText = false;
     
     
     
     // Use this for initialization
     void Start () {
-        
 
+       
         currentWave = -1;
         totalWaves = waves.Length - 1;
 
@@ -98,7 +98,7 @@ public class EnemyManager : MonoBehaviour {
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
-                timeLeft = 60f;
+                timeLeft = 30f;
                 showText = false;
                 StartNextWave();
             }

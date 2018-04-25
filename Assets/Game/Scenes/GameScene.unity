@@ -3933,11 +3933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b755dfc5c29440409fd71e580f83628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
-  SpawnPoints: []
-  SpawnTime: 60
-  enemiesLeft: 0
-  timeLeft: 5
   startingHealth: 100
   enemy: {fileID: 0}
   Gold: {fileID: 0}
@@ -4747,8 +4742,8 @@ GameObject:
   - component: {fileID: 2045886388}
   - component: {fileID: 2045886389}
   m_Layer: 5
-  m_Name: EnemyManager
-  m_TagString: Untagged
+  m_Name: spawnManager
+  m_TagString: spawnManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4783,7 +4778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - EnemiesPerWave: 10
+  - EnemiesPerWave: 1
     Enemy: {fileID: 1936183714881644, guid: c31b5ab56a025b641a5dbe9823507fde, type: 2}
   - EnemiesPerWave: 2
     Enemy: {fileID: 1936183714881644, guid: c31b5ab56a025b641a5dbe9823507fde, type: 2}
