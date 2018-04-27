@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Exit : MonoBehaviour {
+public class Quit : MonoBehaviour {
 
     public Button exitbutton;
 
@@ -15,6 +15,7 @@ public class Exit : MonoBehaviour {
 
     void TaskOnClick()
     {
-        Application.LoadLevel("StartScreen");
+        Application.Quit();
     }
+
 }

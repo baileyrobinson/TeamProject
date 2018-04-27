@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class movement : PWPawn
+public class movement : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 10;
@@ -11,11 +11,16 @@ public class movement : PWPawn
     public float currentStamina;                                   // The current stamina the player has.
     public Slider staminaSlider;
     public GameObject ExitMenu;
+    private Vector3 moveDirection = Vector3.zero;
+    public float gravity = 100.0F;
+    public bool canmove;
 
 
     // Use this for initialization
     void Start()
     {
+        canmove = true;
+
         currentStamina = startingStamina;
         
         if (Input.GetKey(KeyCode.Escape))
@@ -35,21 +40,30 @@ public class movement : PWPawn
         // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
+        CharacterController controller = GetComponent<CharacterController>();
+
+        if (controller.isGrounded && canmove == true)
+        {
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+        }
+
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.LeftShift) && currentStamina > 0)
         {
-            transform.Translate(speed * 1.5f * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
 
+            controller.Move(moveDirection * Time.deltaTime * 1.5f);
 
             currentStamina -= .5f;
             staminaSlider.value = currentStamina;
 
-            // If the player has lost all it's stamina and the death flag hasn't been set yet...
-            if (currentStamina <= 0)
+         
+            if (currentStamina <= 0 && Input.GetKey(KeyCode.LeftShift))
             {
-
-                transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
+                controller.Move(moveDirection * Time.deltaTime);
             }
         }
         else
@@ -60,12 +74,13 @@ public class movement : PWPawn
                 staminaSlider.value = currentStamina;
             }
         }
+
         if (Input.GetKey(KeyCode.Tab))
        {
           ExitMenu.SetActive(true);
           Screen.lockCursor = false;
        }
-        
+      
     }
      
     void OnGUI()

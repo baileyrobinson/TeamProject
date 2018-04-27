@@ -18,11 +18,10 @@ public class Door : MonoBehaviour {
 
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collision Player)
     {
-        if (col.transform.tag == "Player")
-        {
-            gameObject.GetComponent<Opendoor>().LowerDoor = false;
-        }
+
+        Player.gameObject.GetComponent<Opendoor>().LowerDoor = false;
+        
     }
 }
