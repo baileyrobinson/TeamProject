@@ -28,6 +28,7 @@ public class PlayerWeapon1 : MonoBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
+        dealDamage();
         target = other.GetComponentInParent<EnemyHealth>();
         target.TakeDamage(damage);
     }
