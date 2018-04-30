@@ -136,15 +136,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b755dfc5c29440409fd71e580f83628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
-  SpawnPoints: []
-  SpawnTime: 60
-  enemiesLeft: 0
-  timeLeft: 5
   startingHealth: 80
   enemy: {fileID: 1936183714881644}
   Gold: {fileID: 1348922446100260, guid: 833ee944320dfe84da9f4e06549c9551, type: 2}
-  Goldspawn: {fileID: 4164692003982776, guid: 833ee944320dfe84da9f4e06549c9551, type: 2}
+  GoldSpawn: {fileID: 4164692003982776, guid: 833ee944320dfe84da9f4e06549c9551, type: 2}
+  Material: {fileID: 1889412749500658, guid: daa3da0762be3024d9d2d87bb824d1e8, type: 2}
+  MaterialSpawn: {fileID: 4139484817318342, guid: daa3da0762be3024d9d2d87bb824d1e8,
+    type: 2}
   dropRate: 0.5
 --- !u!114 &114999146678552238
 MonoBehaviour:

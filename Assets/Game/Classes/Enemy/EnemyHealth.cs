@@ -11,13 +11,28 @@ public class EnemyHealth : MonoBehaviour
     static public int currentHealth;
     public GameObject enemy;
     public GameObject Gold;
-    public Transform Goldspawn;
-    public float dropRate = 1f; //70% drop chance 
+    public Transform GoldSpawn;
+    public GameObject Material;
+    public Transform MaterialSpawn;
+
+
+    public float dropRate = .70f; //70% drop chance 
+    
+
+    //     // Clone the objects that are "in" the box.
+    //     foreach (GameObject item in items)
+    //     {
+    //         if (item != null)
+    //         {
+    //             // Add code here to change the position slightly
+    //             // so the items are scattered a little bit.
+    //             Instantiate(item, position, Quaternion.identity);
 
     // Use this for initialization
     void Start()
     {
-        
+        Vector3 position = transform.position;
+
         _spawnManager = GameObject.FindGameObjectWithTag("spawnManager").GetComponent<EnemyManager>();
 
         currentHealth = startingHealth;
@@ -42,11 +57,18 @@ public class EnemyHealth : MonoBehaviour
     public void Death()
     {
         _spawnManager.enemyDefeated();
-        Instantiate(Gold, Goldspawn.position, Goldspawn.rotation);
-        //if (Random.Range(0f, 1f) <= dropRate)
-        //{
-        //    Instantiate(Gold, Goldspawn.position, Goldspawn.rotation);
-        //}
+        //Instantiate(Gold, transform.position, Quaternion.identity);
+
+        if (Random.Range(0f, 1f) <= dropRate)
+        {
+            Instantiate(Gold, transform.position, GoldSpawn.rotation);
+            if (Random.Range(0f, 1f) <= dropRate)
+            {
+                
+                Instantiate(Material, transform.position, MaterialSpawn.rotation);
+
+            }
+        }
         GameObject.Destroy(enemy);
     }
     
