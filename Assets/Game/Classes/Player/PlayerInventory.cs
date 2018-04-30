@@ -4,8 +4,8 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {
-    static public int Materials = 0;
-    static public int Money = 0;
+    static public float Materials = 0;
+    static public float Money = 0;
     static public int WeaponLevel = 1;
     public Text gold;
     public Text material;
