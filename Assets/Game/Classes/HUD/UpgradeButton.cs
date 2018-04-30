@@ -31,5 +31,6 @@ public class UpgradeButton : PlayerInventory
             Cost += 50;
         }
         cost.text = "Gold: " + Cost + System.Environment.NewLine + "Material: " + Cost.ToString();
+
     }
 }
