@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerWeapon1 : MonoBehaviour {
     int Level = PlayerInventory.WeaponLevel;
     int BaseDamage = 10;
-    int damage = 30;
+    int damage = 1;
     EnemyHealth target;
 
     void dealDamage()

@@ -7,8 +7,6 @@ public class Raycast : UpgradeButton
 {
     public GameObject Blacksmith;
     public GameObject BlackSmithMenu;
-    public GameObject Healer;
-    public GameObject HealerMenu;
 
     // Use this for initialization
     void Start()

@@ -79,10 +79,11 @@ public class movement : MonoBehaviour
        {
           ExitMenu.SetActive(true);
           Screen.lockCursor = false;
-       }
+
+        }
       
     }
-     
+
     void OnGUI()
     {
         GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 10, 10), "");

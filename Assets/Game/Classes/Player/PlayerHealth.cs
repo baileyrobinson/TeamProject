@@ -48,6 +48,14 @@ public class PlayerHealth : movement {
         damaged = false;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "enemy")
+        {
+            TakeDamage(currentHealth);
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
