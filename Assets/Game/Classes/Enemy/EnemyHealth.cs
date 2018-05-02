@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
 
     private EnemyManager _spawnManager;
-    private Animator _animator;
+
     public int startingHealth = 100;// The amount of health the player starts the game with.
     static public int currentHealth;
     public GameObject enemy;
@@ -14,8 +14,6 @@ public class EnemyHealth : MonoBehaviour
     public Transform GoldSpawn;
     public GameObject Material;
     public Transform MaterialSpawn;
-    
-    int damage = 100;
 
 
     public float dropRate = .70f; //70% drop chance 
@@ -34,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         Vector3 position = transform.position;
-        _animator = GetComponent<Animator>();
+
         _spawnManager = GameObject.FindGameObjectWithTag("spawnManager").GetComponent<EnemyManager>();
 
         currentHealth = startingHealth;
@@ -47,29 +45,19 @@ public class EnemyHealth : MonoBehaviour
     {
 
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Sword")
 
-        {
-
-            TakeDamage(damage);
-            print("player has been hit");
-        }
-    }
     public void TakeDamage(int value)
     {
         currentHealth -= value;
         if (currentHealth <= 0)
         {
-            
             Death();
         }
     }
-    private void Death()
+    public void Death()
     {
-        
         _spawnManager.enemyDefeated();
+        //Instantiate(Gold, transform.position, Quaternion.identity);
 
         if (Random.Range(0f, 1f) <= dropRate)
         {

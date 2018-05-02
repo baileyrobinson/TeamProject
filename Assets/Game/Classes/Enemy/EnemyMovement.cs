@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
-
+    
     public Transform Player;
     public int MoveSpeed = 10;
     public int MaxDist = 10; //distance to preform action
     public int MinDist = 5; //how close they aproach
-    public int Range = 1000; //detection range
-    
+    public int Range = 25; //detection range
+
 
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -33,12 +32,11 @@ public class EnemyMovement : MonoBehaviour
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
 
+
                 if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
                 {
-                   
+                    //Here adjust distance for att animation
                 }
-               
-                
 
             }
         }
