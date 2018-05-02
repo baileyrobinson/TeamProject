@@ -6,9 +6,8 @@ public class EnemyAttack : MonoBehaviour
 {
     int damage = 10;
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //    other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+    }
 }
