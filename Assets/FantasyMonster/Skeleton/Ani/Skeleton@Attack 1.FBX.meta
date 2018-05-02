@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a749f4485b342b7469956010abf2ab25
+guid: e49adf36a01b3334fa491b1f5e8d228e
 timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
@@ -86,7 +86,7 @@ ModelImporter:
     400078: //RootNode
     4300000: Object02
     4300002: Object01
-    7400000: Death
+    7400000: NewAttack
     9500000: //RootNode
     13700000: Object01
     13700002: Object02
@@ -123,10 +123,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Death
+      name: NewAttack
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 83
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

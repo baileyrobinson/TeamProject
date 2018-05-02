@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWeapon1 : MonoBehaviour {
+public class PlayerWeapon1 : MonoBehaviour
+{
     int Level = PlayerInventory.WeaponLevel;
     int BaseDamage = 10;
     int damage = 30;
-    EnemyHealth target;
+    private EnemyHealth _enemyHealth;
 
     void dealDamage()
     {
@@ -26,10 +27,10 @@ public class PlayerWeapon1 : MonoBehaviour {
             damage += BaseDamage *= 30;
         }
     }
-    void OnTriggerEnter(Collider other)
-    {
-        dealDamage();
-        target = other.GetComponentInParent<EnemyHealth>();
-        target.TakeDamage(damage);
-    }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    dealDamage();
+    //    _enemyHealth = other.GetComponentInParent<EnemyHealth>();
+    //    _enemyHealth.TakeDamage(damage);
+    //}
 }
