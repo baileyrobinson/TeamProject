@@ -17,9 +17,9 @@ public class Opendoor : MonoBehaviour {
         LowerDoor = false;
         float FinalHeight = 127f;
 
-       Vector3 FinalPosition = new Vector3(transform.position.x, FinalHeight, transform.position.z);
+        Vector3 FinalPosition = new Vector3(transform.position.x, FinalHeight, transform.position.z);
 
         if (LowerDoor)
-        transform.position = Vector3.Lerp(transform.position, FinalPosition, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, FinalPosition, Time.deltaTime);
     }
 }

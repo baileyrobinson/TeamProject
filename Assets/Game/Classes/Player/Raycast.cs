@@ -25,7 +25,8 @@ public class Raycast : UpgradeButton
         var fwd = transform.TransformDirection(Vector3.forward);
         if (Physics.Raycast(transform.position, fwd, 1))
         {
-           // Debug.Log("Close enough to press key e");
+
+            Debug.Log("Close enough to press key e");
 
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -34,6 +35,8 @@ public class Raycast : UpgradeButton
 
                 BlackSmithMenu.SetActive(true);
                 Debug.Log("I pressed E while aiming at an object!");
+
+                
             }
 
         }

@@ -18,7 +18,7 @@ public class Door : MonoBehaviour {
 
     }
 
-    void OnCollsionEnter(Collision Player)
+    void OnTriggerEnter(Collision Player)
     {
 
         Player.gameObject.GetComponent<Opendoor>().LowerDoor = false;
